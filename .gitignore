@@ -1,0 +1,29 @@
+# ---- Heavy render assets → distributed via GitHub Release (assets_full.zip) ----
+assets/shot03v2/
+assets/apps/
+assets/book_frames/
+
+# ---- Generated video outputs (final video lives on YouTube; audio is kept) ----
+videos/*.mp4
+videos/full_hd/*.mp4
+videos/_*.png
+videos/_*.json
+videos/_*.wav
+videos/thumbnail.png
+videos/youtube_upload.md
+videos/_vbg.png
+# kept on purpose: videos/Audio_full.wav, videos/ch12_final*.srt, videos/full_hd/concat.txt
+
+# ---- Personal / course-internal / not for a public repo ----
+CLAUDE.md
+.claude/
+docs/
+23122044/
+23122044.zip
+custom_config.yml
+
+# ---- Python / OS ----
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

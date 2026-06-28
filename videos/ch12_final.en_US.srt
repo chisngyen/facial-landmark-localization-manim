@@ -1,0 +1,263 @@
+1
+00:00:00,000 --> 00:00:08,240
+Hello, and welcome. Today we're opening Chapter 12 of the Handbook of Face Recognition.
+
+2
+00:00:08,840 --> 00:00:19,820
+To make sense of a face, a computer first has to find the parts, the eyes, the nose, the mouth,
+
+3
+00:00:21,300 --> 00:00:28,700
+88 tiny points, and the need to land in under a tenth of a second. The chapter is built around
+
+4
+00:00:29,260 --> 00:00:37,420
+six questions. Where are the eyes? What's the framework? How do we fit the landmarks?
+
+5
+00:00:38,760 --> 00:00:47,720
+Does any of it actually work? And what comes next? Let's start at the very beginning. Where do
+
+6
+00:00:47,720 --> 00:00:56,880
+landmarks actually help? First, face recognition. You compare two faces by lining up the points.
+
+7
+00:00:58,760 --> 00:01:07,020
+3D reconstruction. These flat dots become the seeds for a full 3D model of the head.
+
+8
+00:01:08,820 --> 00:01:15,080
+Cartoon or sketch. Trace the points and you get a stylized drawing.
+
+9
+00:01:16,580 --> 00:01:22,860
+Pose estimation. Figure out which way the head is turning from the landmarks alone.
+
+10
+00:01:24,580 --> 00:01:31,860
+3D expression analysis. Read a smile or a frown from where the points move.
+
+11
+00:01:34,240 --> 00:01:41,840
+And beautification. Every modern photo filter starts right here. Start with the obvious fix.
+
+12
+00:01:42,700 --> 00:01:47,440
+To find an eye, search the box where an eye should be and take the darkest spot.
+
+13
+00:01:49,420 --> 00:01:57,940
+On a clean, front-facing photo it works. Then the real world shows up.
+
+14
+00:01:59,960 --> 00:02:04,820
+A shadow falls across the face and the edge it locked onto is gone.
+
+15
+00:02:07,480 --> 00:02:11,480
+The head turns and the eye slides straight out of the box.
+
+16
+00:02:13,700 --> 00:02:19,700
+The face moves closer. Then pulls away and the box stops fitting at all.
+
+17
+00:02:23,780 --> 00:02:31,720
+Illumination. Pose. Scale. One rigid box. Three ways to break.
+
+18
+00:02:34,220 --> 00:02:39,780
+The answer isn't a better box. It's knowing what a face is. It's shape
+
+19
+00:02:40,500 --> 00:02:42,720
+and the few ways it's allowed to move.
+
+20
+00:02:44,740 --> 00:02:50,620
+That's the framework we built next. Every method in this chapter shares the same skeleton.
+
+21
+00:02:52,220 --> 00:03:03,260
+First detect the face. Then crop. Then find the points. And finally refine.
+
+22
+00:03:04,840 --> 00:03:10,300
+Only the finder step changes. Everything else stays the same.
+
+23
+00:03:11,120 --> 00:03:19,380
+The shape model is built on a simple idea. Every face is the mean face plus a few learned tweaks.
+
+24
+00:03:20,940 --> 00:03:28,100
+Each tweak is a mode of variation. The first mode usually controls scale.
+
+25
+00:03:29,060 --> 00:03:39,020
+The second rotation. The third expression. Keep about fifteen of these modes and you can
+
+26
+00:03:39,020 --> 00:03:47,040
+rebuild almost any face. Find the eyes first. They're the easiest part to spot round, dark,
+
+27
+00:03:47,800 --> 00:03:53,320
+framed by lighter skin. Once you have them, you have a coordinate system.
+
+28
+00:03:54,620 --> 00:04:01,120
+Scale. Rotation. The rough position of every other point all from the eyes.
+
+29
+00:04:02,140 --> 00:04:10,300
+Here's the whole idea in one line. Any face is the mean face plus a few learned adjustments.
+
+30
+00:04:12,080 --> 00:04:16,100
+Start with the mean, the average shape. The same for everyone.
+
+31
+00:04:17,540 --> 00:04:24,060
+Now turn the first dial. Mode one is with the face grows wider than narrower.
+
+32
+00:04:27,440 --> 00:04:30,960
+The second dial is height taller than shorter.
+
+33
+00:04:34,140 --> 00:04:40,540
+A third opens a smile. A fourth lifts the brows.
+
+34
+00:04:42,840 --> 00:04:48,520
+That's the whole model. A mean shape and a handful of numbers one per mode.
+
+35
+00:04:49,700 --> 00:04:55,260
+Dial them in and you rebuild any face. You can watch the points settle.
+
+36
+00:04:56,700 --> 00:05:02,180
+Starting from the mean shape, every round nudges them closer to where they belong.
+
+37
+00:05:03,280 --> 00:05:06,400
+Does any of this actually work? Time to measure.
+
+38
+00:05:07,440 --> 00:05:12,680
+We put RFV ASM head-to-head with a plain active shape model.
+
+39
+00:05:14,740 --> 00:05:19,480
+Three standard benchmarks. BioID, ferret, and AR.
+
+40
+00:05:22,660 --> 00:05:29,660
+First, accuracy. On every data set, the refined method lands closer to the truth the bars climb
+
+41
+00:05:29,660 --> 00:05:43,980
+higher. And it isn't slower for it. Side by side, RFV ASM fits a face in less time on a single CPU thread.
+
+42
+00:05:46,520 --> 00:05:52,700
+Now zoom into the points. The error drops across almost all 88 of them, not just on average.
+
+43
+00:05:55,360 --> 00:06:02,680
+And the cumulative curve rises sooner. More face is solved inside a tight error budget.
+
+44
+00:06:04,800 --> 00:06:10,840
+More accurate. And faster. That's the result. So that is the chapter.
+
+45
+00:06:12,300 --> 00:06:18,560
+A shape model. A neighborhood pattern. An iterative search.
+
+46
+00:06:19,840 --> 00:06:25,400
+Together, the engine of face geometry for over a decade. What did we deliver?
+
+47
+00:06:26,560 --> 00:06:31,000
+Real-time, landmark fitting on standard frontal faces.
+
+48
+00:06:33,000 --> 00:06:38,480
+What's still unsolved? Big head turns. Heavy occlusion.
+
+49
+00:06:40,320 --> 00:06:46,680
+And what's next? The deep learning wave the authors could already see coming.
+
+50
+00:06:47,400 --> 00:06:55,440
+Chapter 12 was written in 2011. Here is what happened in the 15 years after. 2011.
+
+51
+00:06:57,240 --> 00:07:05,300
+Shape models still held a throne. Beautiful, interpretable, but slow on anything that wasn't
+
+52
+00:07:05,300 --> 00:07:12,720
+looking straight at the camera. 2012, 2013. Cascade regression took over.
+
+53
+00:07:13,680 --> 00:07:18,320
+Instead of fitting a shape, the model just learned to jump.
+
+54
+00:07:19,680 --> 00:07:25,560
+Each step, every point, moved closer to its target. 2017.
+
+55
+00:07:27,180 --> 00:07:31,000
+FAN. Heatmap Convolutional Networks.
+
+56
+00:07:32,560 --> 00:07:37,240
+Instead of pointing at one pixel, every pixel gets to vote.
+
+57
+00:07:38,200 --> 00:07:46,440
+The brightest spot wins. Profile faces an occlusion that broke the old methods finally solved.
+
+58
+00:07:47,440 --> 00:08:01,100
+2020. MediaPipe. 468 dense points. A full-face mesh. Running on your phone at 30 frames per second.
+
+59
+00:08:02,060 --> 00:08:10,360
+The technology behind every modern face filter. 2022 and beyond. Full 3D mesh.
+
+60
+00:08:11,600 --> 00:08:18,720
+Recovered from a single photo. Identity. Expression. Head pose.
+
+61
+00:08:20,500 --> 00:08:25,500
+All separated. All controllable. In one model. Three poles.
+
+62
+00:08:29,300 --> 00:08:37,600
+Accuracy. Interpretability. Real time. No method holds all three at one. Choosing two out of the
+
+63
+00:08:37,600 --> 00:08:47,900
+three that is still the central design question. Six papers. 15 years. One rabbit hole.
+
+64
+00:08:49,140 --> 00:08:55,660
+Chapter 12. Sits right in the middle of this trajectory. The bridge between the
+
+65
+00:08:55,660 --> 00:09:02,400
+classical era and everything that came after. Where landmark localization started.
+
+66
+00:09:04,240 --> 00:09:05,200
+And where it's going.

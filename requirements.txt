@@ -1,0 +1,12 @@
+# Đồ án CSC14006 — ManimGL (3b1b) — Viola–Jones video
+# Cài: pip install -r requirements.txt
+#
+# Hệ thống (xem https://github.com/3b1b/manim ):
+#   - FFmpeg trên PATH
+#   - OpenGL (GPU/driver)
+#   - LaTeX tuỳ chọn (MathTex); Windows: MiKTeX gợi ý trong README 3b1b
+#
+# Lệnh: manimgl (preview), manimgl file.py Scene -w (xuất file)
+# Docs: https://3b1b.github.io/manim
+
+manimgl>=1.6.0

@@ -1,0 +1,43 @@
+Hello, and welcome. <break time="1.0s"/> Today we're opening Chapter twelve of the Handbook of Face Recognition. <break time="1.0s"/>
+
+To make sense of a face, <break time="0.5s"/> a computer first has to find the parts. <break time="0.7s"/> The eyes. <break time="0.4s"/> The nose. <break time="0.4s"/> The mouth. <break time="0.8s"/> Eighty-eight tiny points — and they need to land in under a tenth of a second. <break time="1.0s"/>
+
+The chapter is built around six questions. <break time="0.7s"/> Where are the eyes? <break time="0.5s"/> What's the framework? <break time="0.5s"/> How do we fit the landmarks? <break time="0.5s"/> Does any of it actually work? <break time="0.6s"/> And what comes next? <break time="0.7s"/> Let's start at the very beginning. <break time="1.0s"/>
+
+Where do landmarks actually help? <break time="1.0s"/> First — face recognition. <break time="1.0s"/> You compare two faces by lining up the points. <break time="1.0s"/> Three-D reconstruction. <break time="1.0s"/> These flat dots become the seeds for a full 3D model of the head. <break time="1.0s"/> Cartoon, or sketch. <break time="1.0s"/> Trace the points, and you get a stylised drawing. <break time="1.0s"/> Pose estimation. <break time="1.0s"/> Figure out which way the head is turning — from the landmarks alone. <break time="1.0s"/> Expression analysis. <break time="1.0s"/> Read a smile, or a frown, from where the points move. <break time="1.0s"/> And beautification. <break time="1.0s"/> Every modern photo filter starts right here. <break time="1.0s"/>
+
+The story begins in nineteen ninety-five. <break time="0.6s"/> Two researchers, Cootes and Taylor, had a clean idea. <break time="0.6s"/> A face is a shape — but it varies only in certain learned ways. <break time="0.6s"/> They called it the Active Shape Model. <break time="1.0s"/> A few years later came Active Appearance Models. <break time="0.6s"/> Then Constrained Local Models. <break time="0.7s"/> Each one chasing the same goal — find the points, fast, and reliably. <break time="1.0s"/>
+
+Every method in this chapter shares the same skeleton. <break time="0.8s"/> First, detect the face. <break time="0.6s"/> Then crop. <break time="0.6s"/> Then find the points. <break time="0.6s"/> And finally, refine. <break time="1.0s"/> Only the finder step changes. Everything else stays the same. <break time="1.0s"/>
+
+The shape model is built on a simple idea. <break time="0.7s"/> Every face is the mean face — plus a few learned tweaks. <break time="1.0s"/> Each tweak is a mode of variation. <break time="0.8s"/> The first mode usually controls scale. <break time="0.6s"/> The second, rotation. <break time="0.6s"/> The third, expression. <break time="0.8s"/> Keep about fifteen of these modes, and you can rebuild almost any face. <break time="1.0s"/>
+
+Find the eyes first. <break time="0.7s"/> They're the easiest part to spot — round, dark, framed by lighter skin. <break time="0.7s"/> Once you have them, you have a coordinate system. <break time="0.6s"/> Scale. Rotation. The rough position of every other point — all from the eyes. <break time="1.0s"/>
+
+Here is how the points actually move. <break time="0.6s"/> Each landmark learns what its neighbourhood looks like — a small strip of pixels around it. <break time="0.8s"/> Then the search begins. <break time="0.6s"/> Look at the strip near each point. <break time="0.5s"/> Find the best match nearby. <break time="0.5s"/> Move the point. <break time="0.6s"/> Then — pull the whole shape back into a sensible face. <break time="0.7s"/> Repeat. Three to five rounds is usually enough. <break time="1.0s"/>
+
+You can watch the points settle. <break time="0.7s"/> Starting from the mean shape, every round nudges them closer to where they belong. <break time="1.0s"/>
+
+So how well does this work? <break time="0.7s"/> On six different public datasets — all eighty-eight landmarks placed with very low error. <break time="0.8s"/> Turning the head past thirty degrees hurts. <break time="0.6s"/> Heavy occlusion hurts more. <break time="0.6s"/> But lighting is mostly fine. <break time="0.8s"/> The headline — it runs in real time, on the kind of faces that real systems had to handle. <break time="1.0s"/>
+
+So that is the chapter. <break time="0.6s"/> A shape model. <break time="0.5s"/> A neighbourhood pattern. <break time="0.5s"/> An iterative search. <break time="0.8s"/> Together — the engine of face geometry for over a decade. <break time="1.0s"/>
+
+What did we deliver? <break time="0.7s"/> Real-time landmark fitting, on standard frontal faces. <break time="1.0s"/> What's still unsolved? <break time="0.7s"/> Big head turns. Heavy occlusion. <break time="1.0s"/> And what's next? <break time="0.7s"/> The deep learning wave the authors could already see coming. <break time="1.0s"/>
+
+Chapter twelve was written in twenty eleven. <break time="1.0s"/> Here is what happened in the fifteen years after. <break time="1.0s"/>
+
+Twenty eleven. <break time="0.6s"/> Shape models still held the throne. <break time="0.6s"/> Beautiful, interpretable — but slow on anything that wasn't looking straight at the camera. <break time="1.0s"/>
+
+Twenty twelve, twenty thirteen. <break time="0.6s"/> Cascade regression took over. <break time="0.7s"/> Instead of fitting a shape, the model just learned to jump. <break time="0.6s"/> Each step, every point moved closer to its target. <break time="1.0s"/>
+
+Twenty seventeen. <break time="0.6s"/> F-A-N. <break time="0.6s"/> Heatmap convolutional networks. <break time="0.8s"/> Instead of pointing at one pixel, every pixel gets to vote. <break time="0.6s"/> The brightest spot wins. <break time="0.8s"/> Profile faces and occlusion that broke the old methods — finally solved. <break time="1.0s"/>
+
+Twenty twenty. <break time="0.6s"/> MediaPipe. <break time="0.6s"/> Four hundred and sixty-eight dense points. <break time="0.6s"/> A full face mesh. <break time="0.7s"/> Running on your phone, at thirty frames per second. <break time="0.7s"/> The technology behind every modern face filter. <break time="1.0s"/>
+
+Twenty twenty-two and beyond. <break time="0.6s"/> Full three-D mesh. <break time="0.6s"/> Recovered from a single photo. <break time="0.7s"/> Identity. Expression. Head pose. <break time="0.7s"/> All separated, all controllable, in one model. <break time="1.0s"/>
+
+Three pulls. <break time="0.7s"/> Accuracy. <break time="0.6s"/> Interpretability. <break time="0.6s"/> Real-time. <break time="1.0s"/> No method holds all three at once. <break time="0.6s"/> Choosing two out of the three — that is still the central design question. <break time="1.0s"/>
+
+Six papers. <break time="0.5s"/> Fifteen years. <break time="0.5s"/> One rabbit hole. <break time="1.0s"/> Chapter twelve sits right in the middle of this trajectory — the bridge between the classical era, and everything that came after. <break time="1.0s"/>
+
+Where landmark localization started. <break time="0.8s"/> And where it's going. <break time="1.0s"/>

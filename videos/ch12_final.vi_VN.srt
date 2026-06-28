@@ -1,0 +1,263 @@
+1
+00:00:00,000 --> 00:00:08,240
+Xin chào, và chào mừng. Hôm nay ta mở Chương 12 của Handbook of Face Recognition.
+
+2
+00:00:08,840 --> 00:00:19,820
+Để hiểu một khuôn mặt, máy tính trước hết phải tìm các bộ phận — mắt, mũi, miệng,
+
+3
+00:00:21,300 --> 00:00:28,700
+88 điểm nhỏ, và phải định vị xong trong chưa tới một phần mười giây. Chương này xoay quanh
+
+4
+00:00:29,260 --> 00:00:37,420
+sáu câu hỏi. Mắt ở đâu? Khung xử lý là gì? Khớp các điểm mốc thế nào?
+
+5
+00:00:38,760 --> 00:00:47,720
+Nó có thật sự hiệu quả? Và tiếp theo là gì? Bắt đầu từ đầu nào. Điểm mốc
+
+6
+00:00:47,720 --> 00:00:56,880
+thật ra giúp ích ở đâu? Đầu tiên, nhận diện khuôn mặt. So hai khuôn mặt bằng cách căn các điểm.
+
+7
+00:00:58,760 --> 00:01:07,020
+Tái tạo 3D. Những chấm phẳng này thành hạt giống cho mô hình 3D đầy đủ của đầu.
+
+8
+00:01:08,820 --> 00:01:15,080
+Hoạt hình hay phác họa. Nối các điểm là có một bản vẽ cách điệu.
+
+9
+00:01:16,580 --> 00:01:22,860
+Ước lượng tư thế. Biết đầu đang quay hướng nào chỉ từ các điểm mốc.
+
+10
+00:01:24,580 --> 00:01:31,860
+Phân tích biểu cảm 3D. Đọc nụ cười hay cái cau mày từ chỗ các điểm dịch chuyển.
+
+11
+00:01:34,240 --> 00:01:41,840
+Và làm đẹp. Mọi filter ảnh hiện đại đều bắt đầu từ đây. Bắt đầu với cách hiển nhiên.
+
+12
+00:01:42,700 --> 00:01:47,440
+Để tìm một con mắt, dò trong cái ô nơi mắt lẽ ra phải nằm và lấy điểm tối nhất.
+
+13
+00:01:49,420 --> 00:01:57,940
+Với ảnh sạch, chính diện thì nó chạy được. Rồi thực tế xuất hiện.
+
+14
+00:01:59,960 --> 00:02:04,820
+Một bóng đổ ngang khuôn mặt và cái cạnh nó bám vào biến mất.
+
+15
+00:02:07,480 --> 00:02:11,480
+Đầu quay và con mắt trượt thẳng ra khỏi ô.
+
+16
+00:02:13,700 --> 00:02:19,700
+Mặt lại gần. Rồi ra xa, và cái ô không còn vừa nữa.
+
+17
+00:02:23,780 --> 00:02:31,720
+Ánh sáng. Tư thế. Tỉ lệ. Một cái ô cứng nhắc. Ba cách để hỏng.
+
+18
+00:02:34,220 --> 00:02:39,780
+Lời giải không phải một cái ô tốt hơn. Mà là biết khuôn mặt là gì. Là hình dạng
+
+19
+00:02:40,500 --> 00:02:42,720
+và vài cách ít ỏi mà nó được phép biến đổi.
+
+20
+00:02:44,740 --> 00:02:50,620
+Đó là cái khung ta dựng tiếp theo. Mọi phương pháp trong chương đều chung một bộ khung.
+
+21
+00:02:52,220 --> 00:03:03,260
+Đầu tiên phát hiện khuôn mặt. Rồi cắt. Rồi tìm các điểm. Và cuối cùng tinh chỉnh.
+
+22
+00:03:04,840 --> 00:03:10,300
+Chỉ bước tìm-điểm thay đổi. Mọi thứ còn lại giữ nguyên.
+
+23
+00:03:11,120 --> 00:03:19,380
+Mô hình hình dạng dựa trên một ý đơn giản. Mỗi khuôn mặt là mặt trung bình cộng vài điều chỉnh học được.
+
+24
+00:03:20,940 --> 00:03:28,100
+Mỗi điều chỉnh là một mode biến thiên. Mode đầu thường điều khiển tỉ lệ.
+
+25
+00:03:29,060 --> 00:03:39,020
+Mode hai là góc xoay. Mode ba là biểu cảm. Giữ khoảng mười lăm mode là bạn có thể
+
+26
+00:03:39,020 --> 00:03:47,040
+dựng lại gần như mọi khuôn mặt. Tìm đôi mắt trước. Mắt dễ nhận nhất — tròn, tối,
+
+27
+00:03:47,800 --> 00:03:53,320
+viền bởi vùng da sáng hơn. Có mắt rồi là bạn có một hệ tọa độ.
+
+28
+00:03:54,620 --> 00:04:01,120
+Tỉ lệ. Góc xoay. Vị trí thô của mọi điểm khác — tất cả từ đôi mắt.
+
+29
+00:04:02,140 --> 00:04:10,300
+Cả ý tưởng trong một dòng. Mọi khuôn mặt là mặt trung bình cộng vài điều chỉnh học được.
+
+30
+00:04:12,080 --> 00:04:16,100
+Bắt đầu với mặt trung bình, hình dạng trung bình. Giống nhau cho mọi người.
+
+31
+00:04:17,540 --> 00:04:24,060
+Giờ vặn cái núm đầu tiên. Mode một là bề rộng — mặt rộng ra, rồi hẹp lại.
+
+32
+00:04:27,440 --> 00:04:30,960
+Núm thứ hai là chiều cao — cao lên, rồi thấp xuống.
+
+33
+00:04:34,140 --> 00:04:40,540
+Núm thứ ba mở một nụ cười. Núm thứ tư nhướn lông mày.
+
+34
+00:04:42,840 --> 00:04:48,520
+Đó là cả mô hình. Một hình dạng trung bình và một nhúm con số — mỗi mode một số.
+
+35
+00:04:49,700 --> 00:04:55,260
+Chỉnh chúng vào là bạn dựng lại được mọi khuôn mặt. Bạn có thể xem các điểm ổn định dần.
+
+36
+00:04:56,700 --> 00:05:02,180
+Bắt đầu từ hình dạng trung bình, mỗi vòng đẩy chúng gần hơn tới đúng chỗ của mình.
+
+37
+00:05:03,280 --> 00:05:06,400
+Cái này có thật sự hiệu quả? Đến lúc đo.
+
+38
+00:05:07,440 --> 00:05:12,680
+Ta cho RFE-ASM đấu trực tiếp với ASM thuần.
+
+39
+00:05:14,740 --> 00:05:19,480
+Ba bộ chuẩn. BioID, FERET, và AR.
+
+40
+00:05:22,660 --> 00:05:29,660
+Đầu tiên, độ chính xác. Trên mọi tập dữ liệu, phương pháp cải tiến bám sát ground-truth hơn — các cột cao
+
+41
+00:05:29,660 --> 00:05:43,980
+hơn. Mà không vì thế mà chậm hơn. So trực tiếp, RFE-ASM khớp một khuôn mặt trong ít thời gian hơn trên một luồng CPU.
+
+42
+00:05:46,520 --> 00:05:52,700
+Giờ phóng vào từng điểm. Sai số giảm trên gần như cả 88 điểm, không chỉ ở mức trung bình.
+
+43
+00:05:55,360 --> 00:06:02,680
+Và đường tích lũy lên sớm hơn. Nhiều khuôn mặt được giải trong một ngưỡng sai số chặt.
+
+44
+00:06:04,800 --> 00:06:10,840
+Chính xác hơn. Và nhanh hơn. Đó là kết quả. Vậy đó là cả chương.
+
+45
+00:06:12,300 --> 00:06:18,560
+Một mô hình hình dạng. Một mẫu lân cận. Một tìm kiếm lặp.
+
+46
+00:06:19,840 --> 00:06:25,400
+Cùng nhau, là cỗ máy hình học khuôn mặt suốt hơn một thập kỷ. Ta đã đạt được gì?
+
+47
+00:06:26,560 --> 00:06:31,000
+Khớp điểm mốc thời gian thực trên các khuôn mặt chính diện chuẩn.
+
+48
+00:06:33,000 --> 00:06:38,480
+Còn gì chưa giải? Quay đầu lớn. Che khuất nặng.
+
+49
+00:06:40,320 --> 00:06:46,680
+Và tiếp theo là gì? Làn sóng deep learning mà các tác giả đã thấy trước.
+
+50
+00:06:47,400 --> 00:06:55,440
+Chương 12 được viết năm 2011. Đây là những gì xảy ra trong 15 năm sau đó. 2011.
+
+51
+00:06:57,240 --> 00:07:05,300
+Mô hình hình dạng vẫn còn ngự trị. Đẹp, dễ diễn giải, nhưng chậm với mọi thứ không
+
+52
+00:07:05,300 --> 00:07:12,720
+nhìn thẳng vào camera. 2012, 2013. Hồi quy chuỗi tầng lên ngôi.
+
+53
+00:07:13,680 --> 00:07:18,320
+Thay vì khớp một hình dạng, mô hình chỉ học cách nhảy.
+
+54
+00:07:19,680 --> 00:07:25,560
+Mỗi bước, mỗi điểm, tiến gần đích hơn. 2017.
+
+55
+00:07:27,180 --> 00:07:31,000
+FAN. Mạng tích chập bản đồ nhiệt.
+
+56
+00:07:32,560 --> 00:07:37,240
+Thay vì chỉ vào một pixel, mọi pixel đều được bỏ phiếu.
+
+57
+00:07:38,200 --> 00:07:46,440
+Điểm sáng nhất thắng. Mặt nghiêng và che khuất từng phá vỡ phương pháp cũ — cuối cùng đã giải được.
+
+58
+00:07:47,440 --> 00:08:01,100
+2020. MediaPipe. 468 điểm dày đặc. Một lưới phủ kín khuôn mặt. Chạy trên điện thoại ở 30 khung mỗi giây.
+
+59
+00:08:02,060 --> 00:08:10,360
+Công nghệ đằng sau mọi filter khuôn mặt hiện đại. 2022 và về sau. Lưới 3D đầy đủ.
+
+60
+00:08:11,600 --> 00:08:18,720
+Khôi phục từ một tấm ảnh duy nhất. Danh tính. Biểu cảm. Tư thế đầu.
+
+61
+00:08:20,500 --> 00:08:25,500
+Tách bạch hết. Điều khiển được hết. Trong một mô hình. Ba cực.
+
+62
+00:08:29,300 --> 00:08:37,600
+Độ chính xác. Khả năng diễn giải. Thời gian thực. Chưa phương pháp nào giữ được cả ba cùng lúc. Chọn hai trong
+
+63
+00:08:37,600 --> 00:08:47,900
+ba — đó vẫn là câu hỏi thiết kế trung tâm. Sáu bài báo. Mười lăm năm. Một hố thỏ.
+
+64
+00:08:49,140 --> 00:08:55,660
+Chương 12 nằm ngay giữa quỹ đạo này. Cây cầu giữa
+
+65
+00:08:55,660 --> 00:09:02,400
+thời kỳ kinh điển và mọi thứ đến sau. Nơi bài toán định vị điểm mốc bắt đầu.
+
+66
+00:09:04,240 --> 00:09:05,200
+Và nơi nó đang hướng tới.
