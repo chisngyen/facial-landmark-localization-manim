@@ -53,7 +53,13 @@ bash render_all.sh        # → videos/ch12_final.mp4  (the exact video above)
 ```
 
 The narration track (`videos/Audio_full.wav`) and subtitles (`videos/ch12_final*.srt`)
-are included, so `render_all.sh` reproduces the final muxed video byte-for-similar.
+are included, so `render_all.sh` reproduces the final muxed video.
+
+**On reproducibility:** every shot is deterministic (fixed RNG seeds), so the *content,
+layout, timing and assets* reproduce exactly. For a **pixel-identical** result use the
+same toolchain that produced it: **ManimGL 1.7.2** (pinned in `requirements.txt`) and the
+**Cascadia Mono** font installed — without that font Manim falls back to another
+monospace face (same content, slightly different glyphs).
 
 > Light assets (`assets/datasets`, `assets/shot11`) ship in the repo. The large ones
 > (`shot03v2` ≈ 346 MB hero renders, `apps`, `book_frames`) are in **Releases** — GitHub

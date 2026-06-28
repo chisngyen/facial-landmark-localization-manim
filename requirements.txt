@@ -1,12 +1,15 @@
-# Đồ án CSC14006 — ManimGL (3b1b) — Viola–Jones video
-# Cài: pip install -r requirements.txt
+# CSC14006 — Facial Landmark Localization (Manim explainer)
+# pip install -r requirements.txt
 #
-# Hệ thống (xem https://github.com/3b1b/manim ):
-#   - FFmpeg trên PATH
-#   - OpenGL (GPU/driver)
-#   - LaTeX tuỳ chọn (MathTex); Windows: MiKTeX gợi ý trong README 3b1b
+# Also required on the system (not pip):
+#   - ffmpeg on PATH
+#   - OpenGL (GPU / driver)
+#   - Font "Cascadia Mono" — for text identical to the published video.
+#     Free: https://github.com/microsoft/cascadia-code (ships with Windows Terminal / VS Code).
+#     Without it Manim falls back to another monospace font: same content, slightly
+#     different glyph shapes.
 #
-# Lệnh: manimgl (preview), manimgl file.py Scene -w (xuất file)
-# Docs: https://3b1b.github.io/manim
+# Render one shot:   manimgl source/shotXX_name.py SceneClass -w --hd
+# Render full video: bash render_all.sh   ->  videos/ch12_final.mp4
 
-manimgl>=1.6.0
+manimgl==1.7.2
